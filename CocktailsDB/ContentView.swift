@@ -14,7 +14,8 @@ struct ContentView: View {
 
     var body: some View {
             List(drinks, id: \.idDrink) { drink in
-                VStack(alignment: .leading) {
+                NavigationLink(destination: DetailView(idDrink: drink.idDrink)) {
+                    VStack(alignment: .leading) {
                         Text(drink.strDrink)
                             .font(.title2)
                         AsyncImage(url: URL(string: drink.strDrinkThumb)) { image in
@@ -26,7 +27,8 @@ struct ContentView: View {
                         }
                         .frame(width: 80, height: 80)
                         .cornerRadius(20)
-                    
+                        
+                    }
                 }
             }
             .navigationTitle("\(title)")
