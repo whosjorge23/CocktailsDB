@@ -8,40 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    var title : String
+    var endpoint : String
     @State var drinks: [DrinkElement] = []
 
     var body: some View {
-        NavigationView {
             List(drinks, id: \.idDrink) { drink in
                 VStack(alignment: .leading) {
                         Text(drink.strDrink)
-                            .font(.headline)
+                            .font(.title2)
                         AsyncImage(url: URL(string: drink.strDrinkThumb)) { image in
                             image
                                 .resizable()
                                 .scaledToFill()
                         } placeholder: {
-                            Color.purple.opacity(0.1)
+                            Color.blue.opacity(0.1)
                         }
                         .frame(width: 80, height: 80)
                         .cornerRadius(20)
                     
                 }
             }
-            .navigationTitle("Cocktails")
-            .toolbar {
-                                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                                    NavigationLink(destination: ContentView()) {
-                                        Image(systemName: "person.crop.circle").font(.title)
-                                    }
-                                }
-                            }
+            .navigationTitle("\(title)")
             .onAppear(perform: loadData)
-        }
     }
 
     func loadData() {
-        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic") else { return }
+        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=\(endpoint)") else { return }
 
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             guard let data = data else { return }
@@ -57,6 +50,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(title: "No-Alcholic", endpoint: "Non_Alcoholic")
     }
 }
