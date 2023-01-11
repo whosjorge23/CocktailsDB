@@ -11,7 +11,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: HorizontalAlignment.center,spacing: 50) {
-                NavigationLink(destination: ContentView(title: "Non-Alcoholic", endpoint: "Non_Alcoholic")) {
+                NavigationLink(destination: ContentView(title: "Alcoholic", endpoint: "Alcoholic")) {
                     VStack {
                         AsyncImage(url: URL(string: "https://cdn-icons-png.flaticon.com/512/1584/1584725.png")) { image in
                             image
@@ -25,7 +25,7 @@ struct MainView: View {
                         Text("Alcoholic").font(.title)
                     }
                 }
-                NavigationLink(destination: ContentView(title: "Alcoholic", endpoint: "Alcoholic")) {
+                NavigationLink(destination: ContentView(title: "Non-Alcoholic", endpoint: "Non_Alcoholic")) {
                     VStack {
                         AsyncImage(url: URL(string: "https://cdn-icons-png.flaticon.com/512/5290/5290825.png")) { image in
                             image
