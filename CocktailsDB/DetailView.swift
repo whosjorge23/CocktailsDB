@@ -16,6 +16,7 @@ struct DetailView: View {
             if drink != nil {
                 Text(drink!.strDrink)
                     .font(.largeTitle)
+                    .fixedSize(horizontal: false, vertical: true)
                 AsyncImage(url: URL(string: drink!.strDrinkThumb)) { image in
                     image
                         .resizable()
@@ -169,6 +170,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(idDrink: "14588")
+        DetailView(idDrink: "12708")
     }
 }
