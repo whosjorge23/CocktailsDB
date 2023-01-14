@@ -48,8 +48,10 @@ struct DetailView: View {
                 Text("Instructions")
                         .font(.title2)
                 Text(drink!.strInstructions)
-                    .lineLimit(nil)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                     .font(.subheadline)
+                    .padding(.horizontal)
                 
                 Text("Ingredients")
                     .font(.title2)
