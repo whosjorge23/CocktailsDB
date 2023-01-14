@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct DrinkDetailView: View {
     let idDrink: String
     @State var drink: DrinkDetail? = nil
     
@@ -168,8 +168,8 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
+struct DrinkDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(idDrink: "12708")
+        DrinkDetailView(idDrink: "12708")
     }
 }

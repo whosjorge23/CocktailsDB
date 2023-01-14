@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DrinkListView: View {
     var title : String
     var endpoint : String
     @State var drinks: [DrinkElement] = []
@@ -32,7 +32,7 @@ struct ContentView: View {
             }
             .padding(.horizontal)
             List(searchText == "" ? drinks : filteredDrinks, id: \.idDrink) { drink in
-                NavigationLink(destination: DetailView(idDrink: drink.idDrink)) {
+                NavigationLink(destination: DrinkDetailView(idDrink: drink.idDrink)) {
                     VStack(alignment: .leading) {
                         Text(drink.strDrink)
                             .font(.title2)
@@ -70,8 +70,8 @@ struct ContentView: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
+struct DrinkListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(title: "No-Alcholic", endpoint: "Non_Alcoholic")
+        DrinkListView(title: "No-Alcholic", endpoint: "Non_Alcoholic")
     }
 }
